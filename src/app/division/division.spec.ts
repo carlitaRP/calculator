@@ -1,45 +1,96 @@
-import { division } from "./division"
+import { division } from "./division";
 
 describe('division unit tests', () => {
-    
-    it('Should divide 2 / 2 = 1', () => {
-        // Pattern AAA (Arrange - Act - Assert)
 
-        // Arrange
-        let result = 0;
-        
-        // Act
-        result = division(2, 2);
+    // Prueba números positivos
+    it('Should divide 18 / 9 = 2', () => {
+        let result = division(18, 9);
+        expect(result).toBe(2);
+    });
 
-        // Assert
-        expect(result).toBe(1);
-    })
+    it('Should divide 26 / 20 = 1.3', () => {
+        let result = division(26, 20);
+        expect(result).toBe(1.3);
+    });
 
-    it('Should divide 9 / 2 = 4.5', () => {
-        // Arrange
-        let result = 0;
-        // Act
-        result = division(9, 2);
-        // Assert
-        expect(result).toBe(4.5);
-    })
+    it('Should throw an error for division by zero 26 / 0', () => {
+        expect(() => division(26, 0)).toThrowError("Cannot divide by zero");
+    });
 
-    it('Should divide 3.0 / 0.5 = 6.0', () => {
-        // Arrange
-        let result = 0;
-        // Act
-        result = division(3.0, 0.5);
-        // Assert
-        expect(result).toBe(6.0);
-    })
+    it('Should throw an error for division by zero 50 / 0', () => {
+        expect(() => division(50, 0)).toThrowError("Cannot divide by zero");
+    });
 
-    it(' Should divide 0 / 1 = 0', () => {
-        // Arrange
-        let result = 0;
-        // Act
-        result = division(0, 1);
-        // Assert
-        expect(result).toBe(0);
-    })
+    // Prueba números negativos
+    it('Should divide -4 / -8 = 0.5', () => {
+        let result = division(-4, -8);
+        expect(result).toBe(0.5);
+    });
 
-})
+    it('Should divide -6 / -4 = 1.5', () => {
+        let result = division(-6, -4);
+        expect(result).toBe(1.5);
+    });
+
+    it('Should throw an error for division by zero -5 / 0', () => {
+        expect(() => division(-5, 0)).toThrowError("Cannot divide by zero");
+    });
+
+    it('Should throw an error for division by zero -6 / -0', () => {
+        expect(() => division(-6, -0)).toThrowError("Cannot divide by zero");
+    });
+
+    // Prueba combinación de números positivos y negativos
+    it('Should divide 5 / -3 = -1.6666666666666667', () => {
+        let result = division(5, -3);
+        expect(result).toBe(-1.6666666666666667);
+    });
+
+    it('Should divide 6 / -3 = -2', () => {
+        let result = division(6, -3);
+        expect(result).toBe(-2);
+    });
+
+    it('Should divide -5 / 3 = -1.6666666666666667', () => {
+        let result = division(-5, 3);
+        expect(result).toBe(-1.6666666666666667);
+    });
+
+    it('Should divide -6 / 3 = -2', () => {
+        let result = division(-6, 3);
+        expect(result).toBe(-2);
+    });
+
+    // Prueba números decimales
+    it('Should divide -5.5 / -4.5 = 1.2222222222222223', () => {
+        let result = division(-5.5, -4.5);
+        expect(result).toBe(1.2222222222222223);
+    });
+
+    it('Should divide 6.2 / 5.2 = 1.1923076923076923', () => {
+        let result = division(6.2, 5.2);
+        expect(result).toBe(1.1923076923076923);
+    });
+
+    it('Should divide -5.1 / 3.1 = -1.6451612903225807', () => {
+        let result = division(-5.1, 3.1);
+        expect(result).toBe(-1.6451612903225807);
+    });
+
+    it('Should divide 5.1 / -3.1 = -1.6451612903225807', () => {
+        let result = division(5.1, -3.1);
+        expect(result).toBe(-1.6451612903225807);
+    });
+
+    // Prueba de números grandes
+    it('Should divide 2500 / 1500 = 1.6666666666666667', () => {
+        let result = division(2500, 1500);
+        expect(result).toBe(1.6666666666666667);
+    });
+
+    it('Should divide 2000 / 1000 = 2', () => {
+        let result = division(2000, 1000);
+        expect(result).toBe(2);
+    });
+
+});
