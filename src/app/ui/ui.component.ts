@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addition } from "../addition/addition"
 
+
 @Component({
   selector: 'app-ui',
   templateUrl: './ui.component.html',
@@ -26,5 +27,4 @@ export class UiComponent implements OnInit {
   substraction() {
     alert("substraction here !");
   }
-
 }
