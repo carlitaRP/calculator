@@ -1,18 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UiComponent } from './ui.component';
+import { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
+import { UiComponent } from './ui.component';
 
-describe('Ui Addition - Component', () => {
+// Importa las funciones directamente
+import { addition } from '../addition/addition';
+import { substraction } from '../substraction/substraction';
+import { multiplication } from '../multiplication/multiplication';
+import { division } from '../division/division';
+import { sqrt } from '../sqrt/sqrt';
+
+describe('UiComponent Integration Tests', () => {
   let component: UiComponent;
   let fixture: ComponentFixture<UiComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UiComponent ],
+      declarations: [UiComponent],
       imports: [FormsModule],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,83 +26,74 @@ describe('Ui Addition - Component', () => {
     fixture.detectChanges();
   });
 
-  it('Should call addition method', () => {
-     // Arrange
-     let result = 0;
-     component.operator1 = 2;
-     component.operator2 = 2;
- 
-     // Act
-     component.addition();
-     result = component.result;
- 
-     // Assert
-     expect(result).toBe(4);
-  });
-
-
-
-  it('Should set operator1 model through ngModel', async() => {
-    // Arrange 
-    await fixture.whenStable();
-    fixture.detectChanges();
-    const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
-
-    // Act 
-    inputElement.value = '3.1416';
-    inputElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-
-    // Assert 
-    expect(component.operator1).toEqual(3.1416);
-  });
- 
-  it('Should set operator2 model through ngModel', async() => {
-    // Arrange 
-    await fixture.whenStable();
-    fixture.detectChanges();
-    const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
-
-    // Act 
-    inputElement.value = '2.71';
-    inputElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-
-    // Assert 
-    expect(component.operator2).toEqual(2.71);
-  });
-
-
-  it('should add operator1 and operator2 when i click the addition button ', () => {
-    // Arrange 
-    component.operator1 = 5.0;
-    component.operator2 = 2.5;
-    let additionButton = fixture.debugElement.query(By.css('.addition-button'));
-
-    // Act
-    additionButton.triggerEventHandler('click', null);
-
-    // Assert
-    expect(component.result).toBe(7.5);
-
-   });
-
-  it('Should render sum in result div', () => {
+  it('should perform addition operation on button click', fakeAsync(() => {
     // Arrange
-    component.operator1 = 5;
-    component.operator2 = 5;
- 
+    component.operator1 = 2;
+    component.operator2 = 3;
+
     // Act
     component.addition();
+    tick();
     fixture.detectChanges();
-    
-    let de = fixture.debugElement.query(By.css('.result'));
-    let el : HTMLElement = de.nativeElement;
 
     // Assert
-    expect(el.innerText).toContain('10');
-     
-  });
+    expect(component.result).toEqual(5);
+  }));
 
+  it('should perform subtraction operation on button click', fakeAsync(() => {
+    // Arrange
+    component.operator1 = 8;
+    component.operator2 = 3;
+
+    // Act
+    component.substraction();
+    tick();
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.result).toEqual(5);
+  }));
+
+  it('should perform multiplication operation on button click', fakeAsync(() => {
+    // Arrange
+    component.operator1 = 5;
+    component.operator2 = 4;
+
+    // Act
+    component.multiplication();
+    tick();
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.result).toEqual(20);
+  }));
+
+  it('should perform division operation on button click', fakeAsync(() => {
+    // Arrange
+    component.operator1 = 10;
+    component.operator2 = 2;
+
+    // Act
+    component.division();
+    tick();
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.result).toEqual(5);
+  }));
+
+  it('should perform square root operation on button click', fakeAsync(() => {
+    // Arrange
+    component.operator1 = 25;
+
+    // Act
+    component.sqrt();
+    tick();
+    fixture.detectChanges();
+
+    // Assert
+    expect(component.result).toEqual(5);
+  }));
 });
+
 

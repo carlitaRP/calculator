@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { addition } from "../addition/addition"
+import { addition } from '../addition/addition';
 import { substraction } from '../substraction/substraction';
 import { multiplication } from '../multiplication/multiplication';
 import { division } from '../division/division';
@@ -12,36 +12,41 @@ import { sqrt } from '../sqrt/sqrt';
 })
 export class UiComponent implements OnInit {
 
-  result = 0;
-  operator1 = null;
-  operator2 = null;
+  result: number | null = 0;
+  operator1: number | null = null;
+  operator2: number | null = null;
 
   ngOnInit() {
   }
 
+  performOperation(operation: () => number): void {
+    if (this.operator1 !== null && this.operator2 !== null) {
+      const myResult = operation();
+      this.setResult(myResult);
+    }
+  }
+
   addition() {
-    let myresult = addition(this.operator1, this.operator2);
-    this.setResult(myresult);
+    this.performOperation(() => addition(this.operator1, this.operator2));
   }
 
   substraction() {
-    let myresult = substraction(this.operator1, this.operator2);
-    this.setResult(myresult);
+    this.performOperation(() => substraction(this.operator1, this.operator2));
   }
 
   multiplication() {
-    let myresult = multiplication(this.operator1, this.operator2);
-    this.setResult(myresult);
+    this.performOperation(() => multiplication(this.operator1, this.operator2));
   }
 
   division() {
-    let myresult = division(this.operator1, this.operator2);
-    this.setResult(myresult);
+    this.performOperation(() => division(this.operator1, this.operator2));
   }
 
   sqrt() {
-    let myresult = sqrt(this.operator1);
-    this.setResult(myresult);
+    if (this.operator1 !== null) {
+      const myResult = sqrt(this.operator1);
+      this.setResult(myResult);
+    }
   }
 
   clear() {
@@ -50,9 +55,7 @@ export class UiComponent implements OnInit {
     this.result = null;
   }
 
-  private setResult(value: number) {
+  private setResult(value: number): void {
     this.result = value;
   }
 }
-
-
