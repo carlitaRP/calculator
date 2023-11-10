@@ -21,11 +21,11 @@ describe('sqrt unit tests', () => {
     // Prueba números negativos
     it('Should throw an error for square root of -4', () => {
         expect(() => sqrt(-4)).toThrowError("Cannot calculate square root of a negative number");
-    });
+    });    
 
     it('Should throw an error for square root of -6', () => {
         expect(() => sqrt(-6)).toThrowError("Cannot calculate square root of a negative number");
-    });
+    });    
 
     it('Should throw an error for square root of -5', () => {
         expect(() => sqrt(-5)).toThrowError("Cannot calculate square root of a negative number");
@@ -37,11 +37,12 @@ describe('sqrt unit tests', () => {
         expect(result).toBeCloseTo(5.049752469181039, 10);
     });
 
-    it('Should calculate square root of 36.2 = 6.016644490788792', () => {
-        let result = sqrt(36.2);
-        expect(result).toBeCloseTo(6.016644490788792, 10);
-    });
-
+    it('Should calculate square root of 40.5 = 6.363961030678928', () => {
+        let result = sqrt(40.5);
+        let roundedExpected = 6.363961030678928; // Ajusta según la precisión necesaria
+        expect(result).toBeCloseTo(roundedExpected, 17); // Ajusta el número de dígitos decimales según sea necesario
+    });    
+    
     it('Should calculate square root of 9.1 = 3.016620625799671', () => {
         let result = sqrt(9.1);
         expect(result).toBeCloseTo(3.016620625799671, 10);

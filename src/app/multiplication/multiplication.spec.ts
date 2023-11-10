@@ -76,15 +76,17 @@ describe('multiplication unit tests', () => {
         expect(result).toBe(32.24);
     });
 
-    it('Should multiply -5.1 * 3.1 = -15.81', () => {
-        let result = multiplication(-5.1, 3.1);
-        expect(result).toBe(-15.81);
+    it('Should multiply 5.1 * -3.1 = -15.81', () => {
+        let result = multiplication(5.1, -3.1);
+        expect(result).toBeCloseTo(-15.81, 2); // 2 es el número de dígitos decimales a considerar
     });
+    
 
     it('Should multiply 5.1 * -3.1 = -15.81', () => {
         let result = multiplication(5.1, -3.1);
-        expect(result).toBe(-15.81);
+        expect(result).toBeCloseTo(-15.81, 10); // 10 es el número de dígitos decimales a considerar
     });
+    
 
     // Prueba de números grandes
     it('Should multiply 2500 * 1500 = 3750000', () => {

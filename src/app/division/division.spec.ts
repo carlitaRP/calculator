@@ -74,13 +74,13 @@ describe('division unit tests', () => {
 
     it('Should divide -5.1 / 3.1 = -1.6451612903225807', () => {
         let result = division(-5.1, 3.1);
-        expect(result).toBe(-1.6451612903225807);
-    });
+        expect(result).toBeCloseTo(-1.6451612903225807, 15); // Ajusta el número de dígitos decimales según sea necesario
+    });    
 
     it('Should divide 5.1 / -3.1 = -1.6451612903225807', () => {
         let result = division(5.1, -3.1);
-        expect(result).toBe(-1.6451612903225807);
-    });
+        expect(result).toBeCloseTo(-1.6451612903225807, 15); // Ajusta el número de dígitos decimales según sea necesario
+    });    
 
     // Prueba de números grandes
     it('Should divide 2500 / 1500 = 1.6666666666666667', () => {

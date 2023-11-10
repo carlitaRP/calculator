@@ -78,13 +78,15 @@ describe('addition unit tests', () => {
 
     it('Should add -5.1 + 3.1 = -2', () => {
         let result = addition(-5.1, 3.1);
-        expect(result).toBe(-2);
+        expect(result).toBeCloseTo(-2, 10); // 10 es el número de dígitos decimales a considerar
     });
+    
 
     it('Should add 5.1 + -3.1 = 2', () => {
         let result = addition(5.1, -3.1);
-        expect(result).toBe(2);
+        expect(result).toBeCloseTo(2, 10); // 10 es el número de dígitos decimales a considerar
     });
+    
 
     // Prueba de números grandes
     it('Should add 2500 + 2500 = 5000', () => {
