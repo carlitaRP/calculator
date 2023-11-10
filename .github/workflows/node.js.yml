@@ -40,7 +40,7 @@
 
     - name: show dir, .env file
       run: |
-        ls -la dist/mycv
+        ls -la dist/testing-calculator
 
     - name: download, run httpd image, container name serving_base
       run: |
@@ -48,7 +48,7 @@
 
     - name: cp mycv dist to container
       run: |
-        docker cp dist/mycv/.  serving_base:/usr/local/apache2/htdocs
+        docker cp dist/testing-calculator/.  serving_base:/usr/local/apache2/htdocs
 
     - name: Build the custom Docker image
       run: docker commit --change "ENV MODEL_NAME ${{secrets.MODEL_NAME}}" serving_base ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}}
