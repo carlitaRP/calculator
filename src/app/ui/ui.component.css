@@ -1,36 +1,108 @@
 .calculator {
-    width: 150px;
+    width: 400px;
+    margin: 0 auto;
     text-align: center;
-    color: #999;
+    background-color: #C8A2C8;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.title {
+    font-family: 'Cursive Font', cursive;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    text-align: center;
+}
+
+.input-group {
+    font-size: 1.2em;
+    display: flex;  /* Usa flexbox para centrar elementos */
+    flex-direction: column;  /* Apila los elementos verticalmente */
+    align-items: center;  /* Centra los elementos horizontalmente */
+    margin: 0 10px;
+}
+
+.operator {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.addition-button,
+.subtraction-button,
+.multiplication-button,
+.division-button,
+.square-root-button {
+    cursor: pointer;
+    font-size: 2em; /* Aumentar el tamaño de fuente */
+    font-weight: bold; /* Hacer la fuente más gruesa */
+    width: 60px; /* Aumentar el ancho del botón */
+    height: 60px; /* Aumentar la altura del botón */
+    display: inline-block;
+    margin: 0 10px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    line-height: 60px; /* Alinear el texto verticalmente en el centro */
+    background-color: #E6E6E6;
+}
+
+/* Estilo en hover */
+.addition-button:hover,
+.subtraction-button:hover,
+.multiplication-button:hover,
+.division-button:hover,
+.square-root-button:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.result-container {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    height: 60px; /* Establecer una altura fija */
+    overflow: hidden; /* Evitar que el contenido desborde */
 }
 
 .result {
-    font-size: 3.0em;
-    font-weight: bold;
-    color: red;
-
-}
-
-.operator1 {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     color: black;
-
 }
 
-.operator2 {
-    font-size: 1.5em;
+.clear-button {
+    cursor: pointer;
+    font-size: 2em;
     font-weight: bold;
-    color: blue;
-
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    margin: 0 10px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    line-height: 60px;
+    background-color: #E6E6E6;
 }
 
-.addition-button {
-    cursor: pointer;
-    color: blue;
-}
-.substraction-button {
-    cursor: pointer;
-    color: green;
+.clear-button:hover {
+    background-color: #3498db;
+    color: white;
 }
 
