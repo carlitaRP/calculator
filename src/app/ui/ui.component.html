@@ -4,12 +4,12 @@
     <div class="input-container">
         <div class="input-group">
             <label for="operator1">Ingresa el 1er número:</label>
-            <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator" name="operator1" placeholder="0.0">
+            <input id="operator1" [(ngModel)]="operator1" type="number" class="form-control operator" name="operator1" placeholder=" ">
         </div>
 
         <div class="input-group">
             <label for="operator2">Ingresa el 2do número:</label>
-            <input id="operator2" [(ngModel)]="operator2" type="number" class="form-control operator" name="operator2" placeholder="0">
+            <input id="operator2" [(ngModel)]="operator2" type="number" class="form-control operator" name="operator2" placeholder=" ">
         </div>
     </div>
 
@@ -29,11 +29,16 @@
         <div class="operation-button square-root-button" (click)="sqrt()">
             <span>&radic;</span>
         </div>
+        <!-- Agregar un botón de limpieza -->
+        <div class="operation-button clear-button" (click)="clear()">
+            <span>C</span>
+        </div>        
     </div>
 
     <div class="result-container">
         <span class="result">{{ result }}</span>
     </div>
 </div>
+
 
 

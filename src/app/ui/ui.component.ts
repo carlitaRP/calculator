@@ -12,43 +12,47 @@ import { sqrt } from '../sqrt/sqrt';
 })
 export class UiComponent implements OnInit {
 
-  constructor() { }
-
   result = 0;
-  operator1 = 0;
-  operator2 = 0;
+  operator1 = null;
+  operator2 = null;
 
   ngOnInit() {
   }
 
   addition() {
-    let myresult = 0;
-    myresult = addition(this.operator1, this.operator2);
-    this.result = myresult;
+    let myresult = addition(this.operator1, this.operator2);
+    this.setResult(myresult);
   }
 
   substraction() {
-    let myresult = 0;
-    myresult = substraction(this.operator1, this.operator2);
-    this.result = myresult;
+    let myresult = substraction(this.operator1, this.operator2);
+    this.setResult(myresult);
   }
 
   multiplication() {
-    let myresult = 0;
-    myresult = multiplication(this.operator1, this.operator2);
-    this.result = myresult;
+    let myresult = multiplication(this.operator1, this.operator2);
+    this.setResult(myresult);
   }
 
   division() {
-    let myresult = 0;
-    myresult = division(this.operator1, this.operator2);
-    this.result = myresult;
+    let myresult = division(this.operator1, this.operator2);
+    this.setResult(myresult);
   }
 
   sqrt() {
-    let myresult = 0;
-    myresult = sqrt(this.operator1);
-    this.result = myresult;
+    let myresult = sqrt(this.operator1);
+    this.setResult(myresult);
   }
 
+  clear() {
+    this.operator1 = null;
+    this.operator2 = null;
+    this.result = null;
+  }
+
+  private setResult(value: number) {
+    this.result = value;
+  }
 }
+
+
